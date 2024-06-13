@@ -10,6 +10,7 @@ namespace Crochet_Website.Server.Models
         public string? Description_Small { get; set; }
         public string? Description_Long { get; set;}
         public double Price { get; set;}
+        public List<Image> Images { get; set; } = new List<Image>();
     }
     public class ProductTypeCount
     {

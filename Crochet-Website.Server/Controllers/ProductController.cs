@@ -33,5 +33,13 @@ namespace Crochet_Website.Server.Controllers
             var typesDTO = types.Select(t => t.ToProductTypeCountDTO());
             return new OkObjectResult(typesDTO);
         }
+
+        [HttpGet("getByType")]
+        public async Task<IActionResult> GetProductDetailsByType(string productType)
+        {
+            var products = await _productRepo.GetProductDetailsByTypeAsync(productType);
+            var productsDTO = products.Select(p => p.ToDetailedProductDTO());
+            return new OkObjectResult(productsDTO);
+        }
     }
 }

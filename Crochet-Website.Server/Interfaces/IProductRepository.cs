@@ -6,5 +6,6 @@ namespace Crochet_Website.Server.Interfaces
     {
         Task<List<Product>> GetAllAsync();
         Task<List<ProductTypeCount>> GetTypesAsync();
+        Task<List<Product>> GetProductDetailsByTypeAsync(string productType);
     }
 }

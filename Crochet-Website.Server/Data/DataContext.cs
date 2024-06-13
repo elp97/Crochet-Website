@@ -8,5 +8,6 @@ namespace Crochet_Website.Server.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }
