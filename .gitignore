@@ -1,0 +1,14 @@
+/Crochet-Website.Server/obj/*
+/Crochet-Website.Server/connectionStrings.json
+/Crochet-Website.Server/bin/*
+.vs
+
+
+/crochet-Website.client/obj/*
+/crochet-Website.client/nuget.config
+/crochet-Website.client/karma.conf.js
+/crochet-Website.client/aspnetcore-https.js
+/crochet-website.client/crochet-website.client.esproj
+/crochet-website.client/.vscode
+crochet-website.client/src/assets/.gitkeep
+crochet-website.client/src/proxy.conf.js

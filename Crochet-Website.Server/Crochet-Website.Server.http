@@ -1,0 +1,6 @@
+@Crochet_Website.Server_HostAddress = http://localhost:5107
+
+GET {{Crochet_Website.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
