@@ -69,5 +69,36 @@ namespace Crochet_Website.ServerTests.Repository
             result.Should().NotBeNull();
             result.Should().BeOfType<Task<List<Product>>>();
         }
+
+        [Fact]
+        public async void ProductRepository_GetTypesAsync_ReturnTypes()
+        {
+            //Act
+            var dbContext = await GetDBContext();
+            var productRepo = new ProductRepository(dbContext);
+
+            //Arrange
+            var result = productRepo.GetTypesAsync();
+
+            //Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<Task<List<ProductTypeCount>>>();
+        }
+
+        [Fact]
+        public async void ProductRepository_GetProductDetailsByTypeAsync_ReturnProducts()
+        {
+            //Act
+            string productType = "test";
+            var dbContext = await GetDBContext();
+            var productRepo = new ProductRepository(dbContext);
+
+            //Arrange
+            var result = productRepo.GetProductDetailsByTypeAsync(productType);
+
+            //Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<Task<List<Product>>>();
+        }
     }
 }

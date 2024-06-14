@@ -23,7 +23,7 @@ namespace Crochet_Website.ServerTests.Controller
         }
 
         [Fact]
-        public void ProductController_GetAll_ReturnOk()
+        public void ProductController_GetAll_ReturnSuccess()
         {
             //Act
             var products = A.Fake<List<Product>>();
@@ -31,6 +31,35 @@ namespace Crochet_Website.ServerTests.Controller
 
             //Arrange
             var result = _productController.GetAll();
+
+            //Assert
+            result.Should().BeOfType<Task<IActionResult>>();
+        }
+
+        [Fact]
+        public void ProductController_GetTypes_ReturnSuccess()
+        {
+            //Act
+            var types = A.Fake<List<ProductTypeCount>>();
+            A.CallTo(() => _productRepo.GetTypesAsync()).Returns(types);
+
+            //Arrange
+            var result = _productController.GetTypes();
+
+            //Assert
+            result.Should().BeOfType<Task<IActionResult>>();
+        }
+
+        [Fact]
+        public void ProductController_GetProductDetailsByType_ReturnSuccess()
+        {
+            //Act
+            string productType = "test";
+            var products = A.Fake<List<Product>>();
+            A.CallTo(() => _productRepo.GetProductDetailsByTypeAsync(productType)).Returns(products);
+
+            //Arrange
+            var result = _productController.GetProductDetailsByType(productType);
 
             //Assert
             result.Should().BeOfType<Task<IActionResult>>();
