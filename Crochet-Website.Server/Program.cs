@@ -3,9 +3,23 @@ using Crochet_Website.Server.Interfaces;
 using Crochet_Website.Server.Repository;
 using Microsoft.EntityFrameworkCore;
 
+var AllowedSpecificOrigins = "_allowedSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("connectionStrings.json", optional: false);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowedSpecificOrigins,
+        policy =>
+        {
+            var acceptedURL = builder.Configuration.GetSection("CorsPolicy").Value;
+            if (acceptedURL != null)
+            {
+                policy.WithOrigins(acceptedURL);
+            }
+        });
+});
 
 // Add services to the container.
 
@@ -35,6 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowedSpecificOrigins);
 
 app.UseAuthorization();
 
