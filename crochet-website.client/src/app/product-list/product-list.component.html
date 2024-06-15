@@ -1,0 +1,29 @@
+<div class="flex">
+  @if (productsList$ | async) {
+  <mat-grid-list cols="4" rowHeight="75px" [gutterSize]="'20px'" class="flex-auto product-grid" data-testid="">
+    @for (product of productsList$ | async; track product.type) {
+    <mat-grid-tile [colspan]="1"
+                   [rowspan]="4"
+                   [style.background]="'transparent'"
+                   (click)="selectProduct(product.type)"
+                   class="product-grid-item">
+      @if (product.productImage) {
+      <img class="group-product-image" ngSrc="{{product.productImage}}" fill priority />
+      }
+      @else {
+      <div class="group-product-image">No image found</div>
+      }
+      <div class="image-title" [style.background]="product.background">
+        {{product.count}} {{product.type}}
+        @if (product.count > 1) {
+        's
+        }
+      </div>
+    </mat-grid-tile>
+    }
+  </mat-grid-list>
+  }
+  @else {
+  <p data-testid="no-products-msg">No products found</p>
+  }
+</div>

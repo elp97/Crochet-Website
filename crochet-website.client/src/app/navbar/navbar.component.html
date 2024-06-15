@@ -1,0 +1,14 @@
+<div class="main-bar">
+  @for (item of menuTopics; track item) {
+  <button mat-button class="main-items" (click)="btnClick(item)" [class.active]="selectedRoute === item">{{item}}</button>
+  }
+  <button type="button" mat-icon-button matSuffix [disableRipple]="true" class="cart-icon">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  <mat-form-field appearance="outline" subscriptSizing="dynamic" class="search-box">
+    <input matInput placeholder="Search" (input)="search()" [(ngModel)]="searchText">
+    <button type="button" mat-icon-button matSuffix [disableRipple]="true" class="search-icon">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

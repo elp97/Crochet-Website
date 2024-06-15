@@ -1,0 +1,28 @@
+.main-bar {
+  padding-top: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  .main-items
+{
+  display: inline;
+  margin: 0px 15px;
+  font-size: large;
+  &:hover, &:active
+
+{
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+}
+
+  .search-box:not(.mat-focused) .search-icon {
+    color: white;
+  }
+
+  .search-box.mat-focused .search-icon {
+    color: purple;
+  }
+}

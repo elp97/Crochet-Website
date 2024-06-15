@@ -1,0 +1,51 @@
+@if ( (productList$ | async) && selectedProduct?.name) {
+<div class="product-item">
+  <button type="button" mat-fab extended class="back-button" (click)="back()">
+    Back
+    <mat-icon fontIcon="arrow_circle_left"></mat-icon>
+  </button>
+  <div class="title">
+    {{productTitle}}
+  </div>
+  <div class="empty"></div>
+  <div class="name">
+    {{selectedProduct?.name}}
+    <div class="small-description">{{selectedProduct?.description_Small}}</div>
+  </div>
+  <div class="image"><img class="image-container" src="{{imageLocationPrefix}}{{selectedImage?.imageURL}}" /></div>
+  <div class="price">{{selectedProduct?.price | currency: 'GBP' }}</div>
+
+  <div class="prev-btn">
+    <button type="button" mat-icon-button class="image-button" matTooltip="Previous" matTooltipPosition="below" (click)="prevImage()"
+            [disabled]="selectedImageID === 0">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_double_arrow_left"></mat-icon>
+    </button>
+  </div>
+  <div class="next-btn">
+    <button type="button" mat-icon-button class="image-button" matTooltip="Next" matTooltipPosition="below" (click)="nextImage()"
+            [disabled]="selectedImageID + 1 === selectedProduct?.images?.length">
+      <mat-icon fontIcon="keyboard_double_arrow_right"></mat-icon>
+    </button>
+  </div>
+
+  <div class="description">{{selectedProduct?.description_Long}}</div>
+  <div class="options">
+    @for (productItem of productList$ | async; track productItem.productID; let index = $index) {
+    <button type="button" mat-icon-button class="option-button" matTooltip="Next" matTooltipPosition="below" (click)="selectDesign(productItem)"
+            [class.active]="selectedProduct?.productID === productItem.productID">
+      {{index+1}}
+    </button>
+    }
+  </div>
+  <div class="buttons">
+    <!--<app-cart-button></app-cart-button>
+    <app-wishlist-button></app-wishlist-button>-->
+  </div>
+</div>
+}
+
+@else {
+<div class="loading-spinner">
+  <mat-spinner [mode]="'indeterminate'"></mat-spinner>
+</div>
+}

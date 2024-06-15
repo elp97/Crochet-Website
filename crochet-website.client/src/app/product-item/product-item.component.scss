@@ -1,0 +1,95 @@
+.title {
+  font-size: 4em;
+  justify-content: center;
+  display: flex;
+  min-height: 100px;
+  height: max-content;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.product-item {
+  margin: 20px 50px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 50px auto 70px 20px;
+  grid-template-areas:
+    "back-button title empty" "name image price" "prev-btn image next-btn" "description options buttons";
+  justify-items: center;
+  align-items: center;
+
+  .price {
+    font-size: xx-large;
+    margin-top: 20%;
+  }
+
+  .name {
+    text-transform: capitalize;
+    font-size: xx-large;
+    font-style: italic;
+    margin-top: 20%;
+    text-align: center;
+
+    .small-description {
+      display: block;
+      font-size: large;
+      width: 100%;
+      padding-top: 20%;
+      font-style: normal;
+    }
+  }
+
+  .image {
+    grid-row-start: span 2;
+  }
+
+  .option-button {
+    margin: 10px;
+
+    &:active {
+      border: 2px solid black;
+      color: black;
+      background-color: white;
+    }
+
+    &:not(:active) {
+      border: 2px solid white;
+      color: white;
+    }
+  }
+
+  .small-description {
+    text-align: center;
+  }
+}
+
+.image-container {
+  max-width: 85%;
+  max-height: 75vh;
+  text-align: center;
+}
+
+.back-button {
+  color: white;
+  background: transparent;
+  font-size: medium;
+  border: 2px solid white;
+  margin-left: 2%;
+  justify-self: start;
+
+  &:hover {
+    background-color: white;
+    cursor: pointer;
+    color: black;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  height: 100%;
+  justify-items: center;
+
+  mat-spinner {
+    margin: auto;
+  }
+}

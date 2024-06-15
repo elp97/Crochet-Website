@@ -1,0 +1,60 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(to bottom right, #a368e3, #7ffff4);
+  background-attachment: fixed;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: black;
+}
+
+.main-bar {
+  .mat-mdc-form-field,
+  .mat-mdc-text-field-wrapper,
+  .mat-mdc-form-field-flex {
+    height: 40px;
+  }
+
+  .mat-mdc-form-field-infix {
+    padding: 10px 0px !important;
+  }
+}
+
+.cart-icon,
+.wishlist-icon {
+  color: white !important;
+  text-transform: uppercase !important;
+}
+
+.cart-icon:hover,
+.wishlist-icon:hover {
+  color: black !important;
+  background-color: white !important;
+}
+
+.image-button {
+  margin: 10px;
+
+  &:hover {
+    background-color: white;
+  }
+
+  &:disabled {
+    outline: 2px solid #cfc3c3;
+    color: #cfc3c3;
+  }
+
+  &:not(:disabled) {
+    outline: 2px solid purple;
+    color: purple;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
