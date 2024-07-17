@@ -14,7 +14,7 @@ export class DataMapperService {
       return {
         ...item,
         background: colourSelection[this.randomInteger(1, colourSelection.length - 1)],
-        productImage: `../../../assets/images/${item.type.toLowerCase()}/${item.type.toLowerCase()}_group.JPG`
+        productImage: `../../assets/images/${item.type.toLowerCase()}/${item.type.toLowerCase()}_group.JPG`
       }
     })
   }

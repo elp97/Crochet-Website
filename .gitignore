@@ -15,3 +15,4 @@ crochet-website.client/src/proxy.conf.js
 /Crochet-Website.ServerTests/obj
 /Crochet-Website.ServerTests/bin
 /crochet-website.client/src/environments
+/crochet-website.client/src/assets/images
