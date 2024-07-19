@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   getProductsPerType(productType: string): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.apiUrl}/products/getProductsByType/${productType}`);
+    return this.http.get<IProduct[]>(`${this.apiUrl}/products/getByType?productType=${productType}`);
   }
 
   getProductDetailsByType(productType: string): Observable<IProduct[]> {

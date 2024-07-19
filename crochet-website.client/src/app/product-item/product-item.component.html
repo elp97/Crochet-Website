@@ -1,4 +1,4 @@
-@if ( (productList$ | async) && selectedProduct?.name) {
+@if (productList$ | async) {
 <div class="product-item">
   <button type="button" mat-fab extended class="back-button" (click)="back()">
     Back
@@ -39,7 +39,7 @@
   </div>
   <div class="buttons">
     <!--<app-cart-button></app-cart-button>
-    <app-wishlist-button></app-wishlist-button>-->
+  <app-wishlist-button></app-wishlist-button>-->
   </div>
 </div>
 }

@@ -57,7 +57,7 @@ export class ProductItemComponent implements OnInit {
   //get all products per type
   getProducts() {
     this.loading = true;
-    this.productList$ = this.productSrv.getProductDetailsByType(this.productType).pipe(
+    this.productList$ = this.productSrv.getProductsPerType(this.productType).pipe(
       map((item: IProduct[]) => this.formatProductData(item))
     );
   }
